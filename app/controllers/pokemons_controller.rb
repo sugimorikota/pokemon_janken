@@ -14,20 +14,21 @@ class PokemonsController < ApplicationController
       #image_url = pokemon_data['sprites']['other']['official-artwork']['front_default']
       no = pokemon_data['id']
       #タイプの詳細URLを取得
-      #type1_url = pokemon_data["types"][0]["type"]["url"]
+      type1_url = pokemon_data["types"][0]["type"]["url"]
       #byebug
-      #type2_url = pokemon_data["types"][1]&.dig("type", "url")
+      type2_url = pokemon_data["types"][1]&.dig("type", "url")
       #byebug
-      #response_type1 = Faraday.get "#{type1_url}"
+      response_type1 = Faraday.get "#{type1_url}"
       #byebug
-      #type1_data = JSON.parse(response_type1.body)
+      type1_data = JSON.parse(response_type1.body)
       #byebug
-      #if type2_url
-      #  response_type2 = Faraday.get "#{type2_url}"
-      #  type2_data = JSON.parse(response_type2.body)
-      #end
-      #type1 = type1_data["names"][0]["name"]
-      #type2 = type2_data&.dig("names", 0, "name")
+      if type2_url
+        response_type2 = Faraday.get "#{type2_url}"
+        type2_data = JSON.parse(response_type2.body)
+      end
+      type1 = type1_data["id"]
+      type2 = type2_data&.dig("id")
+      #byebug
       File.open("#{Rails.public_path}/json/pokemon.json") do |file|
         json = JSON.load(file)
         result = json.select { |x| x["id"].to_s.include?(no.to_s) }
@@ -38,10 +39,20 @@ class PokemonsController < ApplicationController
 
       existing_pokemon = Pokemon.find_by(no: no)
       unless existing_pokemon
-        Pokemon.create(
-          no: no,
-          name: name
+        pokemon = Pokemon.create(
+                    no: no,
+                    name: name
+                  )
+        IndividualPokemonType.create(
+          pokemon_id: pokemon.id,
+          pokemon_type_id: type1
         )
+        if type2.present?
+          IndividualPokemonType.create(
+            pokemon_id: pokemon.id,
+            pokemon_type_id: type2
+          )
+        end
       end
       
       @pokemons = Pokemon.all
