@@ -1,0 +1,14 @@
+
+<table>
+  <tr>
+    <td>No.</td>
+    <td><%= pokemon.no %></td>
+  </tr>
+  <tr>
+    <td>Name :</td>
+    <td><%= link_to pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" %></td>
+  </tr>
+  <tr>
+    <td><%= link_to 'キミに決めた!', box_pokemons_select_path(pokemon_id: pokemon.id), data: { turbo_method: :post } %></td>
+  </tr>
+</table>

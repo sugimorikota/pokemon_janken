@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create' #login_path('user_sessions#new')からのデータを'user_sessions#create'へ受け取って、データベースに保存
   delete 'logout', to: 'user_sessions#destroy' #logout_pathが使えるようになる。削除処理を行う。
 
+  post 'box_pokemons/select', to: 'box_pokemons#select'
+
   resources :users, only: %i[new create]
+  resources :pokemons, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
