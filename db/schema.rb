@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_03_112835) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -19,6 +19,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_box_pokemons_on_pokemon_id"
     t.index ["user_id"], name: "index_box_pokemons_on_user_id"
+  end
+
+  create_table "individual_pokemon_types", force: :cascade do |t|
+    t.integer "pokemon_id", null: false
+    t.integer "pokemon_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_individual_pokemon_types_on_pokemon_id"
+    t.index ["pokemon_type_id"], name: "index_individual_pokemon_types_on_pokemon_type_id"
+  end
+
+  create_table "pokemon_types", force: :cascade do |t|
+    t.string "type_image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_image"], name: "index_pokemon_types_on_type_image", unique: true
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -42,4 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
 
   add_foreign_key "box_pokemons", "pokemons"
   add_foreign_key "box_pokemons", "users"
+  add_foreign_key "individual_pokemon_types", "pokemon_types"
+  add_foreign_key "individual_pokemon_types", "pokemons"
 end
