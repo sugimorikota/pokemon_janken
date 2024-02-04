@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_one :user_pokemon_matche
+
   has_many :box_pokemons
   has_many :pokemons, through: :box_pokemons
 

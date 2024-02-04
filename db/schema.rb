@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_03_112835) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_03_141041) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -46,6 +46,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_112835) do
     t.index ["no"], name: "index_pokemons_on_no", unique: true
   end
 
+  create_table "user_pokemon_matches", force: :cascade do |t|
+    t.integer "match_score", default: 500, null: false
+    t.integer "match_limit", default: 10, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_user_pokemon_matches_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -60,4 +69,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_112835) do
   add_foreign_key "box_pokemons", "users"
   add_foreign_key "individual_pokemon_types", "pokemon_types"
   add_foreign_key "individual_pokemon_types", "pokemons"
+  add_foreign_key "user_pokemon_matches", "users"
 end
