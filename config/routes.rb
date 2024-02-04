@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :pokemons, only: [:index]
+  get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
+  get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'
+  get 'user_pokemon_matches/result', to: 'user_pokemon_matches#result'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
