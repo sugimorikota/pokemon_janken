@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td>No.</td>
+    <td><%= box_pokemon.pokemon.no %></td>
+  </tr>
+  <tr>
+    <td>Name :</td>
+    <td><%= link_to box_pokemon.pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{box_pokemon.pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" %></td>
+  </tr>
+  <tr>
+    <td>Type Image:</td>
+    <td>
+      <% box_pokemon.pokemon.pokemon_types.each do |box_pokemon_type| %>
+        <%= image_tag(box_pokemon_type.type_image, height: '25', weight: '75') %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= link_to 'キミに決めた!', box_pokemons_change_path(pokemon_id: box_pokemon.pokemon.id), data: { turbo_method: :post } %></td>
+  </tr>
+</table>

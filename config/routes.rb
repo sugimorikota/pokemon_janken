@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy' #logout_pathが使えるようになる。削除処理を行う。
 
   post 'box_pokemons/select', to: 'box_pokemons#select'
+  post 'box_pokemons/change', to: 'box_pokemons#change'
 
   resources :users, only: %i[new create]
   resources :pokemons, only: [:index]
+  resources :box_pokemons, only: [:index]
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
   get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'
   get 'user_pokemon_matches/result', to: 'user_pokemon_matches#result'
