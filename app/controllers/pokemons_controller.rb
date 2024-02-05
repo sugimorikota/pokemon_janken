@@ -2,7 +2,7 @@ class PokemonsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
   skip_before_action :check_current_user_box_pokemons, only: %i[index]
   def index
-    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0'
+    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0'
     pokemon_list = JSON.parse(response.body)['results']
     
     # 各ポケモンの詳細情報を取得してDBに保存
