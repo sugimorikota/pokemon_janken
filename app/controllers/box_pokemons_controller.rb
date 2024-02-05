@@ -19,7 +19,11 @@ class BoxPokemonsController < ApplicationController
   end
 
   def index
-    
+    @box_pokemons = if params[:search].present?
+      BoxPokemon.joins(:pokemon).where("pokemons.name LIKE ? AND box_pokemons.user_id = ?", "%#{params[:search]}%", current_user.id).order(:pokemon_id)
+    else
+      @box_pokemons
+    end
   end
 
   def change

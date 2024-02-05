@@ -1,21 +1,33 @@
+<%= form_tag(box_pokemons_path, method: :get) do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'ポケモン名で検索' %>
+  </div>
+  <%= submit_tag '検索', class: 'btn btn-primary' %>
+<% end %>
+
+<!-- ポケモン一覧 -->
 <table>
+  <!-- ヘッダー行 -->
   <tr>
-    <td>No.</td>
-    <td><%= box_pokemon.pokemon.no %></td>
+    <th>No.</th>
+    <th>名前</th>
+    <th>画像</th>
+    <th>タイプ</th>
+    <th>操作</th>
   </tr>
-  <tr>
-    <td>Name :</td>
-    <td><%= link_to box_pokemon.pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{box_pokemon.pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" %></td>
-  </tr>
-  <tr>
-    <td>Type Image:</td>
-    <td>
-      <% box_pokemon.pokemon.pokemon_types.each do |box_pokemon_type| %>
-        <%= image_tag(box_pokemon_type.type_image, height: '25', weight: '75') %>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td><%= link_to 'キミに決めた!', box_pokemons_change_path(pokemon_id: box_pokemon.pokemon.id), data: { turbo_method: :post } %></td>
-  </tr>
+  
+  <!-- ポケモンの情報を表示 -->
+  <% box_pokemons.each do |box_pokemon| %>
+    <tr>
+      <td><%= box_pokemon.pokemon.no %></td>
+      <td><%= link_to box_pokemon.pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{box_pokemon.pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" %></td>
+      <td><%= image_tag(box_pokemon.pokemon.pokemon_image) %></td>
+      <td>
+        <% box_pokemon.pokemon.pokemon_types.each do |box_pokemon_type| %>
+          <%= image_tag(box_pokemon_type.type_image, height: '25', weight: '75') %>
+        <% end %>
+      </td>
+      <td><%= link_to 'キミに決めた!', box_pokemons_change_path(pokemon_id: box_pokemon.pokemon.id), data: { turbo_method: :post } %></td>
+    </tr>
+  <% end %>
 </table>

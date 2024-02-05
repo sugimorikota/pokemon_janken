@@ -1,6 +1,7 @@
 class UserPokemonMatchesController < ApplicationController
   before_action :current_user_mainpokemon, only: %i[ standby battle result ]
   before_action :current_user_pokemon_match, only: %i[ standby battle result ]
+  before_action :session_present, only: %i[ result ]
 
   def standby
     @current_user_pokemon_match = UserPokemonMatch.find_by(user_id: current_user.id)
@@ -30,7 +31,7 @@ class UserPokemonMatchesController < ApplicationController
     @current_user_pokemon_match.save
     
     if attackpoint > deffencepoint
-      @result_message = "かち"
+      @result_message = "WIN"
       @current_user_pokemon_match.match_score += 10
       @current_user_pokemon_match.save
       unless mybox_present.present?
@@ -40,13 +41,22 @@ class UserPokemonMatchesController < ApplicationController
         )
       end
     elsif attackpoint == deffencepoint
-      @result_message = "引き分け"
+      @result_message = "DROW"
       @current_user_pokemon_match.match_score += 3
       @current_user_pokemon_match.save
+      # 50%でポケモンゲット！！
+      if rand(1..100) <= 50
+        unless mybox_present.present?
+          @pokemonget = BoxPokemon.create(
+            user_id: current_user.id,
+            pokemon_id: match_pokemon_pokemon_id
+          )
+        end
+      end
     else
       @current_user_pokemon_match.match_score -= 5
       @current_user_pokemon_match.save
-      @result_message = "負け"
+      @result_message = "LOSE"
     end
   end
 
@@ -57,5 +67,11 @@ class UserPokemonMatchesController < ApplicationController
 
   def current_user_pokemon_match
     @current_user_pokemon_match = UserPokemonMatch.find_by(user_id: current_user.id)
+  end
+
+  def session_present
+    unless session[:match_pokemon_id].present?
+      redirect_to user_pokemon_matches_standby_path
+    end
   end
 end

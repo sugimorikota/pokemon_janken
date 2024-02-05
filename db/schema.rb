@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_03_141041) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_05_183739) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_141041) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pokemon_image", null: false
     t.index ["name"], name: "index_pokemons_on_name", unique: true
     t.index ["no"], name: "index_pokemons_on_no", unique: true
   end
@@ -62,6 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_141041) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

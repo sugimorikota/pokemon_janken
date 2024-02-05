@@ -1,8 +1,9 @@
 class PokemonsController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
   skip_before_action :check_current_user_box_pokemons, only: %i[index]
+  before_action :box_pokemon_present, only: %i[index]
+
   def index
-    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0'
+    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0'
     pokemon_list = JSON.parse(response.body)['results']
     
     # 各ポケモンの詳細情報を取得してDBに保存
@@ -11,7 +12,7 @@ class PokemonsController < ApplicationController
       pokemon_data = JSON.parse(response.body)
       
       name = pokemon_data['name']
-      #image_url = pokemon_data['sprites']['other']['official-artwork']['front_default']
+      pokemon_image = pokemon_data['sprites']['front_default']
       no = pokemon_data['id']
       #タイプの詳細URLを取得
       type1_url = pokemon_data["types"][0]["type"]["url"]
@@ -41,7 +42,8 @@ class PokemonsController < ApplicationController
       unless existing_pokemon
         pokemon = Pokemon.create(
                     no: no,
-                    name: name
+                    name: name,
+                    pokemon_image: pokemon_image
                   )
         IndividualPokemonType.create(
           pokemon_id: pokemon.id,
@@ -101,6 +103,12 @@ class PokemonsController < ApplicationController
 
   def pokemon_params
     params.require(:pokemon).permit(:no, :name)
+  end
+
+  def box_pokemon_present
+    if current_user && BoxPokemon.where(user_id: current_user.id).present?
+      redirect_to root_path
+    end
   end
 end
   

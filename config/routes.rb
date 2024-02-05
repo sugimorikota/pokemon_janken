@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'box_pokemons/select', to: 'box_pokemons#select'
   post 'box_pokemons/change', to: 'box_pokemons#change'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[index new create show edit update]
   resources :pokemons, only: [:index]
   resources :box_pokemons, only: [:index]
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'

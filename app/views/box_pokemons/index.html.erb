@@ -1,2 +1,4 @@
-<%= @main_pokemon.pokemon.name %>
-<%= render partial: 'box_pokemon', collection: @box_pokemons %>
+<div>
+  <%= @main_pokemon.pokemon.name %>
+</div>
+<%= render partial: 'box_pokemon', locals: { box_pokemons: @box_pokemons } %>
