@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Rate</th>
+    <th>Avatar</th>
+  </tr>
+  <% users.each_with_index do |user, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.user_pokemon_match.match_score %></td>
+      <td><%= image_tag user.avatar.url, class: 'rounded-circle mt-3', size: '100x100' %></td>
+    </tr>
+  <% end %>
+</table>

@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   skip_before_action :check_current_user_box_pokemons, only: %i[new create]
   before_action :set_user, only: %i[ show edit update ]
 
+  def index
+    @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC')
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -26,6 +30,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -36,6 +45,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :salt, :name)
+      params.require(:user).permit(:email, :password, :password_confirmation, :salt, :name, :avatar, :avatar_cache)
     end
 end

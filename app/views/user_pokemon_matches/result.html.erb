@@ -1,5 +1,14 @@
-<%= @result_message %>
-<% if @pokemonget.present? %>
-  <%= @pokemonget.pokemon.name %>
+<% case @result_message %>
+<% when "WIN" %>
+  <span style="color: red;"><%= @result_message %></span>
+<% when "DROW" %>
+  <span style="color: grey;"><%= @result_message %></span>
+<% when "LOSE" %>
+  <span style="color: blue;"><%= @result_message %></span>
 <% end %>
+
+<% if @pokemonget.present? %>
+  <%= @pokemonget.pokemon.name %>をつかまえた！
+<% end %>
+
 <%= @current_user_pokemon_match.match_score %>

@@ -1,2 +1,32 @@
-<%= @match_pokemon.pokemon.name %>
-<%= link_to '結果を見る', user_pokemon_matches_result_path %>
+<div style="display: flex; align-items: center; justify-content: center;">
+  <div>
+    <div>
+      No.<%= @main_pokemon.pokemon.no %>　<%= @main_pokemon.pokemon.name %>
+    </div>
+    <div style="text-align: center;">
+      <%= image_tag @main_pokemon.pokemon.pokemon_image, style: "transform: scaleX(-1);" %>
+    </div>
+    <div>
+      <% @main_pokemon.pokemon.pokemon_types.each do |main_pokemon_type| %>
+        <%= image_tag(main_pokemon_type.type_image, height: '25', weight: '75') %>
+      <% end %>
+    </div>
+  </div>
+  <div>VS</div>
+  <div>
+    <div>
+      No.<%= @match_pokemon.pokemon.no %>　<%= @match_pokemon.pokemon.name %>
+    </div>
+    <div style="text-align: center;">
+      <%= image_tag @match_pokemon.pokemon.pokemon_image %>
+    </div>
+    <div>
+      <% @match_pokemon.pokemon.pokemon_types.each do |match_pokemon_type| %>
+        <%= image_tag(match_pokemon_type.type_image, height: '25', weight: '75') %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;">
+  <%= link_to '結果を見る', user_pokemon_matches_result_path %>
+</div>

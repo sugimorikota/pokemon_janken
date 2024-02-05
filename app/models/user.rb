@@ -1,7 +1,9 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   authenticates_with_sorcery!
 
-  has_one :user_pokemon_matche
+  has_one :user_pokemon_match
 
   has_many :box_pokemons
   has_many :pokemons, through: :box_pokemons
