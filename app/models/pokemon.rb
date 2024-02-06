@@ -8,4 +8,8 @@ class Pokemon < ApplicationRecord
 
   validates :no, uniqueness: true, presence: true
   validates :name, uniqueness: true, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["no", "name", "created_at", "updated_at", "pokemon_image"]
+  end
 end
