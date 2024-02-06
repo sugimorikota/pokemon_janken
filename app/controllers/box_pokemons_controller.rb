@@ -19,11 +19,8 @@ class BoxPokemonsController < ApplicationController
   end
 
   def index
-    @box_pokemons = if params[:search].present?
-      BoxPokemon.joins(:pokemon).where("pokemons.name LIKE ? AND box_pokemons.user_id = ?", "%#{params[:search]}%", current_user.id).order(:pokemon_id)
-    else
-      @box_pokemons
-    end
+    @q = Pokemon.joins(:box_pokemons).where(box_pokemons: { user_id: current_user.id }).ransack(params[:q])
+    @box_pokemons = @q.result.order(id: :asc)
   end
 
   def change
@@ -34,6 +31,14 @@ class BoxPokemonsController < ApplicationController
     @new_main_pokemon = @box_pokemons.find_by(pokemon_id: pokemon_id)
     @new_main_pokemon.update(main_flg: true)
     redirect_to root_path
+  end
+
+  def search
+    @search_box_pokemons = Pokemon.joins(:box_pokemons).where(box_pokemons: { user_id: current_user.id }).ransack(params[:q]).result.where("name like ?", "%#{params[:q]}%")
+    #@search_box_pokemons = Pokemon.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

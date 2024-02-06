@@ -11,7 +11,13 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index new create show edit update]
   resources :pokemons, only: [:index]
+  resources :pokemons do
+    get :search, on: :collection
+  end
   resources :box_pokemons, only: [:index]
+  resources :box_pokemons do
+    get :search, on: :collection
+  end
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
   get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'
   get 'user_pokemon_matches/result', to: 'user_pokemon_matches#result'
