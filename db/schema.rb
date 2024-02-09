@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_05_183739) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_07_114814) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -28,6 +28,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_05_183739) do
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_individual_pokemon_types_on_pokemon_id"
     t.index ["pokemon_type_id"], name: "index_individual_pokemon_types_on_pokemon_type_id"
+  end
+
+  create_table "pokemon_books", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "pokemon_id", null: false
+    t.boolean "get_flg", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_pokemon_books_on_pokemon_id"
+    t.index ["user_id"], name: "index_pokemon_books_on_user_id"
   end
 
   create_table "pokemon_types", force: :cascade do |t|
@@ -71,5 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_05_183739) do
   add_foreign_key "box_pokemons", "users"
   add_foreign_key "individual_pokemon_types", "pokemon_types"
   add_foreign_key "individual_pokemon_types", "pokemons"
+  add_foreign_key "pokemon_books", "pokemons"
+  add_foreign_key "pokemon_books", "users"
   add_foreign_key "user_pokemon_matches", "users"
 end
