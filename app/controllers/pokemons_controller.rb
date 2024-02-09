@@ -3,7 +3,7 @@ class PokemonsController < ApplicationController
   #before_action :box_pokemon_present, only: %i[index]
 
   def index
-    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=9&offset=0'
+    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0'
     pokemon_list = JSON.parse(response.body)['results']
     
     # 各ポケモンの詳細情報を取得してDBに保存

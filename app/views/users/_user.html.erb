@@ -1,6 +1,6 @@
 <div>
   <p><strong>Name:</strong> <%= user.name %></p>
-  <p><strong>Email:</strong> <%= user.email %></p>
+  <p><strong>Rate:</strong> <%= user.user_pokemon_match.match_score %></p>
   <p><strong>Avatar:</strong></p>
   <%= image_tag user.avatar.url, class: 'rounded-circle mt-3', size: '100x100' %>
 </div>

@@ -1,0 +1,21 @@
+<!-- ポケモン一覧 -->
+<table>
+  <!-- ヘッダー行 -->
+  <tr>
+    <th>図鑑No.</th>
+    <th>名前</th>
+    <th>画像</th>
+    <th>タイプ</th>
+  </tr>
+  
+  
+  <!-- ポケモンの情報を表示 -->
+  <% pokemon_books.each do |pokemon_book| %>
+    <tr style="background-color: <%= pokemon_book.decorate.row_background_color %>;">
+      <td><%= pokemon_book.no %></td>
+      <td><%= pokemon_book.decorate.render_name_link %></td>
+      <td><%= pokemon_book.decorate.render_image_tag %></td>
+      <td><%= pokemon_book.decorate.render_type_images %></td>
+    </tr>
+  <% end %>
+</table>

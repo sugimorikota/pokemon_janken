@@ -10,6 +10,11 @@ class BoxPokemonsController < ApplicationController
     pokemon_id = params[:pokemon_id]
     @select_pokemon = BoxPokemon.new(user_id: current_user.id, pokemon_id: pokemon_id, main_flg: true)
     if @select_pokemon.save
+      PokemonBook.create(
+        user_id: current_user.id,
+        pokemon_id: pokemon_id,
+        get_flg: true
+      )
       redirect_to root_path
       flash[:notice] = 'ユーザーの作成に成功しました'
     else
