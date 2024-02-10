@@ -1,32 +1,43 @@
-<div style="display: flex; align-items: center; justify-content: center;">
-  <div>
-    <div>
-      No.<%= @main_pokemon.pokemon.no %>　<%= @main_pokemon.pokemon.name %>
+<div style="display: flex; justify-content: center;">
+  <div style="padding-top: 140px;">
+    <div style="position: relative; width: 100%; text-align: center;">
+      <%= image_tag @main_pokemon.pokemon.pokemon_back_image %>
+      <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); z-index: -1;">
+        <%= image_tag 'field.png',  width: '140' %>
+      </div>
     </div>
-    <div style="text-align: center;">
-      <%= image_tag @main_pokemon.pokemon.pokemon_image, style: "transform: scaleX(-1);" %>
+    <div style="padding-top: 20px">
+      No.<%= @main_pokemon.pokemon.no %>　<%= @main_pokemon.pokemon.name %>
     </div>
     <div>
       <% @main_pokemon.pokemon.pokemon_types.each do |main_pokemon_type| %>
-        <%= image_tag(main_pokemon_type.type_image, height: '25', weight: '75') %>
+        <%= image_tag(main_pokemon_type.type_image, height: '20') %>
       <% end %>
     </div>
   </div>
-  <div>VS</div>
+  <div style="margin: 30px"></div>
   <div>
     <div>
       No.<%= @match_pokemon.pokemon.no %>　<%= @match_pokemon.pokemon.name %>
     </div>
-    <div style="text-align: center;">
-      <%= image_tag @match_pokemon.pokemon.pokemon_image %>
-    </div>
     <div>
       <% @match_pokemon.pokemon.pokemon_types.each do |match_pokemon_type| %>
-        <%= image_tag(match_pokemon_type.type_image, height: '25', weight: '75') %>
+        <%= image_tag(match_pokemon_type.type_image, height: '20') %>
       <% end %>
+    </div>
+    <div style="position: relative; width: 100%; text-align: center;">
+      <%= image_tag @match_pokemon.pokemon.pokemon_image %>
+      <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); z-index: -1;">
+        <%= image_tag 'field.png', width: '140' %>
+      </div>
     </div>
   </div>
 </div>
-<div style="text-align: center;">
-  <%= link_to '結果を見る', user_pokemon_matches_result_path %>
+<div style="display: flex; justify-content: center; padding-top: 10px;">
+  <div style="padding-right: 50px;">
+    <%= @match_pokemon.user.name%>の　<br><%= @match_pokemon.pokemon.name %>が　あらわれた🔻
+  </div>
+  <div style="padding-right: 50px;">
+    <%= link_to 'たたかう', user_pokemon_matches_result_path %>
+  </div>
 </div>

@@ -1,7 +1,8 @@
 class UserPokemonMatchesController < ApplicationController
   before_action :current_user_mainpokemon, only: %i[ standby battle result ]
   before_action :current_user_pokemon_match, only: %i[ standby battle result ]
-  before_action :session_present, only: %i[ result ]
+  before_action :session_empty, only: %i[ result ]
+  skip_before_action :session_present, only: %i[ battle result ]
 
   def standby
     @current_user_pokemon_match = UserPokemonMatch.find_by(user_id: current_user.id)
@@ -35,6 +36,7 @@ class UserPokemonMatchesController < ApplicationController
       @current_user_pokemon_match.match_score += 10
       @current_user_pokemon_match.save
       add_box_pokemons(match_pokemon_pokemon_id)
+      get_pokemonbooks(match_pokemon_pokemon_id)
     elsif attackpoint == deffencepoint
       @result_message = "DROW"
       @current_user_pokemon_match.match_score += 3
@@ -42,6 +44,7 @@ class UserPokemonMatchesController < ApplicationController
       # 50%でポケモンゲット！！
       if rand(1..100) <= 50
         add_box_pokemons(match_pokemon_pokemon_id)
+        get_pokemonbooks(match_pokemon_pokemon_id)
       end
     else
       @current_user_pokemon_match.match_score -= 5
@@ -59,7 +62,7 @@ class UserPokemonMatchesController < ApplicationController
     @current_user_pokemon_match = UserPokemonMatch.find_by(user_id: current_user.id)
   end
 
-  def session_present
+  def session_empty
     unless session[:match_pokemon_id].present?
       redirect_to user_pokemon_matches_standby_path
     end
@@ -71,6 +74,15 @@ class UserPokemonMatchesController < ApplicationController
       PokemonBook.create(
         user_id: current_user.id,
         pokemon_id: pokemon_id
+      )
+    end
+  end
+
+  def get_pokemonbooks(pokemon_id)
+    pokemonbook_present = PokemonBook.find_by(user_id: current_user, pokemon_id: pokemon_id)
+    if pokemonbook_present.present?
+      PokemonBook.update(
+        get_flg: true
       )
     end
   end
