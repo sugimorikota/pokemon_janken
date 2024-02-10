@@ -11,9 +11,11 @@ class PokemonsController < ApplicationController
       response = Faraday.get(pokemon['url'])
       pokemon_data = JSON.parse(response.body)
       
+      no = pokemon_data['id']
       name = pokemon_data['name']
       pokemon_image = pokemon_data['sprites']['front_default']
-      no = pokemon_data['id']
+      pokemon_back_image = pokemon_data['sprites']['back_default']
+      
       #タイプの詳細URLを取得
       type1_url = pokemon_data["types"][0]["type"]["url"]
       #byebug
@@ -43,7 +45,8 @@ class PokemonsController < ApplicationController
         pokemon = Pokemon.create(
                     no: no,
                     name: name,
-                    pokemon_image: pokemon_image
+                    pokemon_image: pokemon_image,
+                    pokemon_back_image: pokemon_back_image
                   )
         IndividualPokemonType.create(
           pokemon_id: pokemon.id,
@@ -74,7 +77,7 @@ class PokemonsController < ApplicationController
   private
 
   def pokemon_params
-    params.require(:pokemon).permit(:no, :name)
+    params.require(:pokemon).permit(:no, :name, :pokemon_image, :pokemon_back_image)
   end
 
   def box_pokemon_present

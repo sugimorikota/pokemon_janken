@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
   resources :pokemon_books, only: [:index]
+  resources :individual_pokemon_types, only: [:index]
 
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
   get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'

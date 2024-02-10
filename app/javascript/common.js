@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("turbo:load", function() {
   const avatarInput = document.getElementById('avatar-input');
   const preview = document.getElementById('preview');
 
@@ -13,5 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (file) {
       reader.readAsDataURL(file);
     }
+    console.log('変更')
   });
 });

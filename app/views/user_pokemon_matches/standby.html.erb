@@ -4,24 +4,12 @@
       <%= @main_pokemon.pokemon.name %>
     </div>
     <div style="text-align: center;">
-      <%= image_tag @main_pokemon.pokemon.pokemon_image, style: "transform: scaleX(-1);" %>
+      <%= image_tag @main_pokemon.pokemon.pokemon_image %>
     </div>
     <div>
       <% @main_pokemon.pokemon.pokemon_types.each do |main_pokemon_type| %>
         <%= image_tag(main_pokemon_type.type_image, height: '25', weight: '75') %>
       <% end %>
-    </div>
-  </div>
-  <div style="text-align: center;">VS</div>
-  <div>
-    <div>
-      
-    </div>
-    <div style="text-align: center;">
-      <%= image_tag "poke-ball.png", alt: "poke-ball" %>
-    </div>
-    <div>
-      
     </div>
   </div>
 </div>
