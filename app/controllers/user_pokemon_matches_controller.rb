@@ -1,6 +1,8 @@
 class UserPokemonMatchesController < ApplicationController
+  
   before_action :current_user_mainpokemon, only: %i[ standby battle result ]
   before_action :current_user_pokemon_match, only: %i[ standby battle result ]
+  before_action :match_limit, only: %i[ battle result]
   before_action :session_empty, only: %i[ result ]
   skip_before_action :session_present, only: %i[ battle result ]
 
@@ -94,6 +96,12 @@ class UserPokemonMatchesController < ApplicationController
         user_id: current_user.id,
         pokemon_id: pokemon_id
       )
+    end
+  end
+
+  def match_limit
+    if @current_user_pokemon_match.match_limit <= 0
+      redirect_to user_pokemon_matches_standby_path, danger: "本日の対戦回数制限をむかえました"
     end
   end
 end

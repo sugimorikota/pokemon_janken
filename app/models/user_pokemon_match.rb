@@ -714,4 +714,8 @@ class UserPokemonMatch < ApplicationRecord
     end
     totalpoint
   end
+
+  def self.update_match_limit
+    UserPokemonMatch.update_all(match_limit: 10)
+  end
 end
