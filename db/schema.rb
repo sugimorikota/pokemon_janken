@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_205454) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_10_231042) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -75,7 +75,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_205454) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.string "avatar"
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   add_foreign_key "box_pokemons", "pokemons"
