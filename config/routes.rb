@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
+  get 'password_resets/create'
+  get 'password_resets/edit'
+  get 'password_resets/update'
 
   root 'top#index'
 
@@ -20,6 +25,8 @@ Rails.application.routes.draw do
   end
   resources :pokemon_books, only: [:index]
   resources :individual_pokemon_types, only: [:index]
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
 
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
   get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'
