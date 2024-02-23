@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :box_pokemons
   has_many :pokemons, through: :box_pokemons
+  has_many :notifications
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

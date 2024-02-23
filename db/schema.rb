@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_10_231042) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_134315) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_231042) do
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_individual_pokemon_types_on_pokemon_id"
     t.index ["pokemon_type_id"], name: "index_individual_pokemon_types_on_pokemon_type_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "body", null: false
+    t.boolean "checked", default: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "pokemon_books", force: :cascade do |t|
@@ -54,8 +63,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_231042) do
     t.datetime "updated_at", null: false
     t.string "pokemon_image", null: false
     t.string "pokemon_back_image", null: false
-    t.index ["name"], name: "index_pokemons_on_name", unique: true
-    t.index ["no"], name: "index_pokemons_on_no", unique: true
+    t.index ["name"], name: "index_pokemons_on_name"
+    t.index ["no"], name: "index_pokemons_on_no"
   end
 
   create_table "user_pokemon_matches", force: :cascade do |t|
@@ -87,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_231042) do
   add_foreign_key "box_pokemons", "users"
   add_foreign_key "individual_pokemon_types", "pokemon_types"
   add_foreign_key "individual_pokemon_types", "pokemons"
+  add_foreign_key "notifications", "users"
   add_foreign_key "pokemon_books", "pokemons"
   add_foreign_key "pokemon_books", "users"
   add_foreign_key "user_pokemon_matches", "users"

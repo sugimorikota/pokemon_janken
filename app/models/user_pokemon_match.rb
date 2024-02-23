@@ -717,5 +717,12 @@ class UserPokemonMatch < ApplicationRecord
 
   def self.update_match_limit
     UserPokemonMatch.update_all(match_limit: 10)
+
+    users = User.all
+    notification_body = "残り対戦回数がリセットされました。"
+    users.each do |user|
+      user.notifications.create(body: notification_body)
+    end
   end
+
 end

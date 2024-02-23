@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   resources :pokemon_books, only: [:index]
   resources :individual_pokemon_types, only: [:index]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :notifications, only: [:index]
+  delete 'destroy_all_users_notifications', to: 'notifications#destroy_all'
 
 
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'

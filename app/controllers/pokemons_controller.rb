@@ -1,9 +1,10 @@
 class PokemonsController < ApplicationController
-  skip_before_action :check_current_user_box_pokemons, only: %i[index]
+  skip_before_action :check_current_user_box_pokemons, only: %i[index search]
   #before_action :box_pokemon_present, only: %i[index]
 
   def index
-    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0'
+=begin
+    response = Faraday.get 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0'
     pokemon_list = JSON.parse(response.body)['results']
     
     # 各ポケモンの詳細情報を取得してDBに保存
@@ -59,10 +60,10 @@ class PokemonsController < ApplicationController
           )
         end
       end
-      
-      @q = Pokemon.ransack(params[:q])
-      @pokemons = @q.result
-    end
+=end
+    @q = Pokemon.ransack(params[:q])
+    @pokemons = @q.result.page(params[:page]).per(25)
+    #end
   end
 
 
