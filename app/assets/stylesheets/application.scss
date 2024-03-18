@@ -1,5 +1,63 @@
 @import "bootstrap";
+.pokejan{
+  font-family: "Nico Moji";
+  font-size: 40px;
+  padding-left: 10px;
+  color: #ffcc03;
+  text-shadow: 4px 4px 3px #3c59ff, -4px -4px 3px #3c59ff,
+  -4px 4px 3px #3c59ff,  4px -4px 3px #3c59ff,
+  4px 0 3px #3c59ff, -4px  0 3px #3c59ff,
+  0 4px 3px #3c59ff,  0 -4px 3px #3c59ff;
+}
+
+.navbar{
+  background-color: #FF4F50;
+  
+}
 
 body {
   background-color: beige;
+  position: relative;
+  min-height: 100vh;
+}
+
+.pokemon-name-bar{
+  border: 2px solid black;
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  background-color: #FFFFEE;
+}
+
+#battle-left-menu{
+  padding: 10px;
+  border-style: solid;
+  border-color: #CC3333;
+  border-width: 5px 0 5px 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#battle-right-menu{
+  padding: 10px;
+  border-style: solid;
+  border-color: #666699;
+  border-width: 5px;
+  border-radius: 5px;
+  margin-left: 3px;
+}
+
+
+footer {
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+  background-color: #FF4F50;
+  width: 100%;
+  margin-bottom: -85px;/*フッターの高さと等しいネガティブマージン*/
+}
+
+.push{
+  height: 85px;/*フッターと同じ高さに指定*/
 }

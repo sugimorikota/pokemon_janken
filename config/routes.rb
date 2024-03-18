@@ -29,6 +29,16 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   delete 'destroy_all_users_notifications', to: 'notifications#destroy_all'
 
+  namespace :admin do
+    get 'user_sessions/new'
+    get 'sessions/new'
+    get 'dashboards/index'
+    root to: 'dashboards#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+  end
+
 
   get 'user_pokemon_matches/standby', to: 'user_pokemon_matches#standby'
   get 'user_pokemon_matches/battle', to: 'user_pokemon_matches#battle'

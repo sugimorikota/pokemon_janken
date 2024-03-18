@@ -2,6 +2,7 @@
 //= require popper
 //= require bootstrap-sprockets
 
+
 import "@hotwired/turbo-rails"
 import "controllers"
 import "./common"
