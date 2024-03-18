@@ -7,21 +7,31 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <%= javascript_include_tag 'bootstrap' %>
     <%= javascript_importmap_tags %>
     
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <header class='push'>
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
+    </header>
+    
+    
     <%= render 'shared/flash_message' %>
     <%= yield %>
     <br>
+    
     <%= render 'shared/copyright' %>
-    <%= render 'shared/footer' %>
+    
   </body>
+
+  <footer class='push'>
+    <%= render 'shared/footer' %>
+  </footer>
 </html>
