@@ -1,0 +1,19 @@
+<% if @notifications.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @notifications.each do |notification| %>
+        <tr>
+          <td><%= notification.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "全削除", destroy_all_users_notifications_path, data: { turbo_method: :delete }, class: "btn btn-light" %>
+<% else %>
+  <p>通知はありません</p>
+<% end %>
