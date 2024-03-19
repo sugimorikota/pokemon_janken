@@ -1,1 +1,20 @@
 ja:
+  activerecord:
+    models:
+      user: 'トレーナー'
+      pokemon: 'ポケモン'
+      pokemon_book: 'ポケモン図鑑'
+      box_pokemon: 'ポケモンボックス'
+      pokemon_type: 'タイプ'
+      user_pokemon_match: '対戦記録'
+      notifications: 'お知らせ'
+    attributes:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        name: 'なまえ'
+        avatar: 'プロフィール画像'
+      user_pokemon_match:
+        match_score: 'レート'
+        match_limit: '対戦制限回数'

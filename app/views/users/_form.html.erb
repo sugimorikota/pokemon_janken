@@ -1,25 +1,26 @@
 <%= form_with model: @user, local: true do |f| %>
-  <div class="form-group">
+  
+  <div class="form-group" style='margin-top: 10px;'>
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group" style='margin-top: 10px;'>
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group" style='margin-top: 10px;'>
     <%= f.label :avatar %><br/>
     <%= f.file_field :avatar, class: 'form-control mb-3', accept: 'image/*', id: 'avatar-input' %>
     <%= f.hidden_field :avatar_cache %>
     <%= image_tag user.avatar.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100' %>
   </div>
-  <div class="form-group">
+  <div class="form-group" style='margin-top: 10px;'>
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group" style='margin-top: 10px;'>
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
-  <%= f.submit '登録', class: 'btn btn-primary' %>
+  <%= f.submit (t 'defaults.register'), class: 'btn btn-primary', style: 'margin-top: 10px;' %>
 <% end %>

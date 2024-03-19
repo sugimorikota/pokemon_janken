@@ -49,6 +49,27 @@ body {
   margin-left: 3px;
 }
 
+.users-table{
+  border: 2px solid gray;
+  border-radius: 5px;
+  background-color: #FFFFEE;
+}
+
+.pokemons-table{
+  border: 10px solid #FFA500;
+  border-radius: 5px;
+  background-color: #FFFFEE;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.pagination {
+  justify-content: center;
+  padding-top: 10px;
+}
+
 
 footer {
   position: absolute;/*←絶対位置*/
