@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   private
   
   def not_authenticated
-    redirect_to login_path, danger: "ログインしてください"
+    flash[:warning] = t('defaults.message.require_login')
+    redirect_to login_path
   end
 
   def check_current_user_box_pokemons
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def session_present
     if session[:match_pokemon_id].present?
-      flash[:danger] = 'にげることが できない!'
+      flash[:danger] = t('defaults.message.no_escape')
       redirect_to user_pokemon_matches_battle_path
     end
   end
