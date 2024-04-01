@@ -1,18 +1,23 @@
 document.addEventListener("turbo:load", function() {
-  const avatarInput = document.getElementById('avatar-input');
-  const preview = document.getElementById('preview');
+  const form = document.getElementById('user-form'); // 追加したフォームのIDを指定する
 
-  avatarInput.addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    
-    reader.onload = function() {
-      preview.src = reader.result;
-    }
+  if (form) { // フォームが存在するかチェック
+    const avatarInput = form.querySelector('#avatar-input');
+    const preview = form.querySelector('#preview');
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-    console.log('変更')
-  });
+    avatarInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = function() {
+        preview.src = reader.result;
+      }
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+      console.log('変更')
+    });
+  }
 });
+

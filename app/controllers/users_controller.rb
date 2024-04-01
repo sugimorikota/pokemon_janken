@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   skip_before_action :check_current_user_box_pokemons, only: %i[new create]
-  before_action :set_user, only: %i[ show edit update ]
+  before_action :set_user, only: %i[ edit update ]
 
   def index
     @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC')
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+  
 
   # POST /users or /users.json
   def create

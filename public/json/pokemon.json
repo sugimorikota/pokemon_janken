@@ -16,594 +16,742 @@
   },
   {
     "name": "ヒトカゲ",
+    "hiragana_name": "ひとかげ",
     "id": 4
   },
   {
     "name": "リザード",
+    "hiragana_name": "りざーど",
     "id": 5
   },
   {
     "name": "リザードン",
+    "hiragana_name": "りざーどん",
     "id": 6
   },
   {
     "name": "ゼニガメ",
+    "hiragana_name": "ぜにがめ",
     "id": 7
   },
   {
     "name": "カメール",
+    "hiragana_name": "かめーる",
     "id": 8
   },
   {
     "name": "カメックス",
+    "hiragana_name": "かめっくす",
     "id": 9
   },
   {
     "name": "キャタピー",
+    "hiragana_name": "きゃたぴー",
     "id": 10
   },
   {
     "name": "トランセル",
+    "hiragana_name": "とらんせる",
     "id": 11
   },
   {
     "name": "バタフリー",
+    "hiragana_name": "ばたふりー",
     "id": 12
   },
   {
     "name": "ビードル",
+    "hiragana_name": "びーどる",
     "id": 13
   },
   {
     "name": "コクーン",
+    "hiragana_name": "こくーん",
     "id": 14
   },
   {
     "name": "スピアー",
+    "hiragana_name": "すぴあー",
     "id": 15
   },
   {
     "name": "ポッポ",
+    "hiragana_name": "ぽっぽ",
     "id": 16
   },
   {
     "name": "ピジョン",
+    "hiragana_name": "ぴじょん",
     "id": 17
   },
   {
     "name": "ピジョット",
+    "hiragana_name": "ぴじょっと",
     "id": 18
   },
   {
     "name": "コラッタ",
+    "hiragana_name": "こらった",
     "id": 19
   },
   {
     "name": "ラッタ",
+    "hiragana_name": "らった",
     "id": 20
   },
   {
     "name": "オニスズメ",
+    "hiragana_name": "おにすずめ",
     "id": 21
   },
   {
     "name": "オニドリル",
+    "hiragana_name": "おにどりる",
     "id": 22
   },
   {
     "name": "アーボ",
+    "hiragana_name": "あーぼ",
     "id": 23
   },
   {
     "name": "アーボック",
+    "hiragana_name": "あーぼっく",
     "id": 24
   },
   {
     "name": "ピカチュウ",
+    "hiragana_name": "ぴかちゅう",
     "id": 25
   },
   {
     "name": "ライチュウ",
+    "hiragana_name": "らいちゅう",
     "id": 26
   },
   {
     "name": "サンド",
+    "hiragana_name": "さんど",
     "id": 27
   },
   {
     "name": "サンドパン",
+    "hiragana_name": "さんどぱん",
     "id": 28
   },
   {
     "name": "ニドラン♀",
+    "hiragana_name": "にどらん♀",
     "id": 29
   },
   {
     "name": "ニドリーナ",
+    "hiragana_name": "にどりーな",
     "id": 30
   },
   {
     "name": "ニドクイン",
+    "hiragana_name": "にどくいん",
     "id": 31
   },
   {
     "name": "ニドラン♂",
+    "hiragana_name": "にどらん♂",
     "id": 32
   },
   {
     "name": "ニドリーノ",
+    "hiragana_name": "にどりーの",
     "id": 33
   },
   {
     "name": "ニドキング",
+    "hiragana_name": "にどきんぐ",
     "id": 34
   },
   {
     "name": "ピッピ",
+    "hiragana_name": "ぴっぴ",
     "id": 35
   },
   {
     "name": "ピクシー",
+    "hiragana_name": "ぴくしー",
     "id": 36
   },
   {
     "name": "ロコン",
+    "hiragana_name": "ろこん",
     "id": 37
   },
   {
     "name": "キュウコン",
+    "hiragana_name": "きゅうこん",
     "id": 38
   },
   {
     "name": "プリン",
+    "hiragana_name": "ぷりん",
     "id": 39
   },
   {
     "name": "プクリン",
+    "hiragana_name": "ぷくりん",
     "id": 40
   },
   {
     "name": "ズバット",
+    "hiragana_name": "ずばっと",
     "id": 41
   },
   {
     "name": "ゴルバット",
+    "hiragana_name": "ごるばっと",
     "id": 42
   },
   {
     "name": "ナゾノクサ",
+    "hiragana_name": "なぞのくさ",
     "id": 43
   },
   {
     "name": "クサイハナ",
+    "hiragana_name": "くさいはな",
     "id": 44
   },
   {
     "name": "ラフレシア",
+    "hiragana_name": "らふれしあ",
     "id": 45
   },
   {
     "name": "パラス",
+    "hiragana_name": "ぱらす",
     "id": 46
   },
   {
     "name": "パラセクト",
+    "hiragana_name": "ぱらせくと",
     "id": 47
   },
   {
     "name": "コンパン",
+    "hiragana_name": "こんぱん",
     "id": 48
   },
   {
     "name": "モルフォン",
+    "hiragana_name": "もるふぉん",
     "id": 49
   },
   {
     "name": "ディグダ",
+    "hiragana_name": "でぃぐだ",
     "id": 50
   },
   {
     "name": "ダグトリオ",
+    "hiragana_name": "だぐどりお",
     "id": 51
   },
   {
     "name": "ニャース",
+    "hiragana_name": "にゃーす",
     "id": 52
   },
   {
     "name": "ペルシアン",
+    "hiragana_name": "ぺるしあん",
     "id": 53
   },
   {
     "name": "コダック",
+    "hiragana_name": "こだっく",
     "id": 54
   },
   {
     "name": "ゴルダック",
+    "hiragana_name": "ごるだっく",
     "id": 55
   },
   {
     "name": "マンキー",
+    "hiragana_name": "まんきー",
     "id": 56
   },
   {
     "name": "オコリザル",
+    "hiragana_name": "おこりざる",
     "id": 57
   },
   {
     "name": "ガーディ",
+    "hiragana_name": "がーでぃ",
     "id": 58
   },
   {
     "name": "ウインディ",
+    "hiragana_name": "ういんでぃ",
     "id": 59
   },
   {
     "name": "ニョロモ",
+    "hiragana_name": "にょろも",
     "id": 60
   },
   {
     "name": "ニョロゾ",
+    "hiragana_name": "にょろぞ",
     "id": 61
   },
   {
     "name": "ニョロボン",
+    "hiragana_name": "にょろぼん",
     "id": 62
   },
   {
     "name": "ケーシィ",
+    "hiragana_name": "けーしぃ",
     "id": 63
   },
   {
     "name": "ユンゲラー",
+    "hiragana_name": "ゆんげらー",
     "id": 64
   },
   {
     "name": "フーディン",
+    "hiragana_name": "ふーでぃん",
     "id": 65
   },
   {
     "name": "ワンリキー",
+    "hiragana_name": "わんりきー",
     "id": 66
   },
   {
     "name": "ゴーリキー",
+    "hiragana_name": "ごーりきー",
     "id": 67
   },
   {
     "name": "カイリキー",
+    "hiragana_name": "かいりきー",
     "id": 68
   },
   {
     "name": "マダツボミ",
+    "hiragana_name": "まだつぼみ",
     "id": 69
   },
   {
     "name": "ウツドン",
+    "hiragana_name": "うつどん",
     "id": 70
   },
   {
     "name": "ウツボット",
+    "hiragana_name": "うつぼっと",
     "id": 71
   },
   {
     "name": "メノクラゲ",
+    "hiragana_name": "めのくらげ",
     "id": 72
   },
   {
     "name": "ドククラゲ",
+    "hiragana_name": "どくくらげ",
     "id": 73
   },
   {
     "name": "イシツブテ",
+    "hiragana_name": "いしつぶて",
     "id": 74
   },
   {
     "name": "ゴローン",
+    "hiragana_name": "ごろーん",
     "id": 75
   },
   {
     "name": "ゴローニャ",
+    "hiragana_name": "ごろーにゃ",
     "id": 76
   },
   {
     "name": "ポニータ",
+    "hiragana_name": "ぽにーた",
     "id": 77
   },
   {
     "name": "ギャロップ",
+    "hiragana_name": "ぎゃろっぷ",
     "id": 78
   },
   {
     "name": "ヤドン",
+    "hiragana_name": "やどん",
     "id": 79
   },
   {
     "name": "ヤドラン",
+    "hiragana_name": "やどらん",
     "id": 80
   },
   {
     "name": "コイル",
+    "hiragana_name": "こいる",
     "id": 81
   },
   {
     "name": "レアコイル",
+    "hiragana_name": "れあこいる",
     "id": 82
   },
   {
     "name": "カモネギ",
+    "hiragana_name": "カモネギ",
     "id": 83
   },
   {
     "name": "ドードー",
+    "hiragana_name": "どーどー",
     "id": 84
   },
   {
     "name": "ドードリオ",
+    "hiragana_name": "どーどりお",
     "id": 85
   },
   {
     "name": "パウワウ",
+    "hiragana_name": "ぱうわう",
     "id": 86
   },
   {
     "name": "ジュゴン",
+    "hiragana_name": "じゅごん",
     "id": 87
   },
   {
     "name": "ベトベター",
+    "hiragana_name": "べとべたー",
     "id": 88
   },
   {
     "name": "ベトベトン",
+    "hiragana_name": "べとべとん",
     "id": 89
   },
   {
     "name": "シェルダー",
+    "hiragana_name": "しぇるだー",
     "id": 90
   },
   {
     "name": "パルシェン",
+    "hiragana_name": "ぱるしぇん",
     "id": 91
   },
   {
     "name": "ゴース",
+    "hiragana_name": "ごーす",
     "id": 92
   },
   {
     "name": "ゴースト",
+    "hiragana_name": "ごーすと",
     "id": 93
   },
   {
     "name": "ゲンガー",
+    "hiragana_name": "げんがー",
     "id": 94
   },
   {
     "name": "イワーク",
+    "hiragana_name": "いわーく",
     "id": 95
   },
   {
     "name": "スリープ",
+    "hiragana_name": "すりーぷ",
     "id": 96
   },
   {
     "name": "スリーパー",
+    "hiragana_name": "すりーぱー",
     "id": 97
   },
   {
     "name": "クラブ",
+    "hiragana_name": "くらぶ",
     "id": 98
   },
   {
     "name": "キングラー",
+    "hiragana_name": "きんぐらー",
     "id": 99
   },
   {
     "name": "ビリリダマ",
+    "hiragana_name": "びりりだま",
     "id": 100
   },
   {
     "name": "マルマイン",
+    "hiragana_name": "まるまいん",
     "id": 101
   },
   {
     "name": "タマタマ",
+    "hiragana_name": "たまたま",
     "id": 102
   },
   {
     "name": "ナッシー",
+    "hiragana_name": "なっしー",
     "id": 103
   },
   {
     "name": "カラカラ",
+    "hiragana_name": "からから",
     "id": 104
   },
   {
     "name": "ガラガラ",
+    "hiragana_name": "がらがら",
     "id": 105
   },
   {
     "name": "サワムラー",
+    "hiragana_name": "さわむらー",
     "id": 106
   },
   {
     "name": "エビワラー",
+    "hiragana_name": "えびわらー",
     "id": 107
   },
   {
     "name": "ベロリンガ",
+    "hiragana_name": "べろりんが",
     "id": 108
   },
   {
     "name": "ドガース",
+    "hiragana_name": "どがーす",
     "id": 109
   },
   {
     "name": "マタドガス",
+    "hiragana_name": "またどがす",
     "id": 110
   },
   {
     "name": "サイホーン",
+    "hiragana_name": "さいほーん",
     "id": 111
   },
   {
     "name": "サイドン",
+    "hiragana_name": "さいどん",
     "id": 112
   },
   {
     "name": "ラッキー",
+    "hiragana_name": "らっきー",
     "id": 113
   },
   {
     "name": "モンジャラ",
+    "hiragana_name": "もんじゃら",
     "id": 114
   },
   {
     "name": "ガルーラ",
+    "hiragana_name": "がるーら",
     "id": 115
   },
   {
     "name": "タッツー",
+    "hiragana_name": "たっつー",
     "id": 116
   },
   {
     "name": "シードラ",
+    "hiragana_name": "しーどら",
     "id": 117
   },
   {
     "name": "トサキント",
+    "hiragana_name": "とさきんと",
     "id": 118
   },
   {
     "name": "アズマオウ",
+    "hiragana_name": "あずまおう",
     "id": 119
   },
   {
     "name": "ヒトデマン",
+    "hiragana_name": "ひとでまん",
     "id": 120
   },
   {
     "name": "スターミー",
+    "hiragana_name": "すたーみー",
     "id": 121
   },
   {
     "name": "バリヤード",
+    "hiragana_name": "ばりやーど",
     "id": 122
   },
   {
     "name": "ストライク",
+    "hiragana_name": "すとらいく",
     "id": 123
   },
   {
     "name": "ルージュラ",
+    "hiragana_name": "るーじゅら",
     "id": 124
   },
   {
     "name": "エレブー",
+    "hiragana_name": "えれぶー",
     "id": 125
   },
   {
     "name": "ブーバー",
+    "hiragana_name": "ぶーばー",
     "id": 126
   },
   {
     "name": "カイロス",
+    "hiragana_name": "かいろす",
     "id": 127
   },
   {
     "name": "ケンタロス",
+    "hiragana_name": "けんたろす",
     "id": 128
   },
   {
     "name": "コイキング",
+    "hiragana_name": "こいきんぐ",
     "id": 129
   },
   {
     "name": "ギャラドス",
+    "hiragana_name": "ぎゃらどす",
     "id": 130
   },
   {
     "name": "ラプラス",
+    "hiragana_name": "らぷらす",
     "id": 131
   },
   {
     "name": "メタモン",
+    "hiragana_name": "めたもん",
     "id": 132
   },
   {
     "name": "イーブイ",
+    "hiragana_name": "いーぶい",
     "id": 133
   },
   {
     "name": "シャワーズ",
+    "hiragana_name": "しゃわーず",
     "id": 134
   },
   {
     "name": "サンダース",
+    "hiragana_name": "さんだーす",
     "id": 135
   },
   {
     "name": "ブースター",
+    "hiragana_name": "ぶーすたー",
     "id": 136
   },
   {
     "name": "ポリゴン",
+    "hiragana_name": "ぽりごん",
     "id": 137
   },
   {
     "name": "オムナイト",
+    "hiragana_name": "おむないと",
     "id": 138
   },
   {
     "name": "オムスター",
+    "hiragana_name": "おむすたー",
     "id": 139
   },
   {
     "name": "カブト",
+    "hiragana_name": "かぶと",
     "id": 140
   },
   {
     "name": "カブトプス",
+    "hiragana_name": "かぶとぷす",
     "id": 141
   },
   {
     "name": "プテラ",
+    "hiragana_name": "ぷてら",
     "id": 142
   },
   {
     "name": "カビゴン",
+    "hiragana_name": "かびごん",
     "id": 143
   },
   {
     "name": "フリーザー",
+    "hiragana_name": "ふりーざー",
     "id": 144
   },
   {
     "name": "サンダー",
+    "hiragana_name": "さんだー",
     "id": 145
   },
   {
     "name": "ファイヤー",
+    "hiragana_name": "ふぁいやー",
     "id": 146
   },
   {
     "name": "ミニリュウ",
+    "hiragana_name": "みにりゅう",
     "id": 147
   },
   {
     "name": "ハクリュー",
+    "hiragana_name": "はくりゅー",
     "id": 148
   },
   {
     "name": "カイリュー",
+    "hiragana_name": "かいりゅー",
     "id": 149
   },
   {
     "name": "ミュウツー",
+    "hiragana_name": "みゅうつー",
     "id": 150
   },
   {
     "name": "ミュウ",
+    "hiragana_name": "みゅう",
     "id": 151
   },
   {

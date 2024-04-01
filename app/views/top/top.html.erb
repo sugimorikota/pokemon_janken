@@ -2,9 +2,9 @@
 <div style="text-align: center;">
   <%= image_tag 'icon.png', size: "286x257" %>
   <% if @main_pokemon.present? %>
-    <%=image_tag @main_pokemon.pokemon.pokemon_image %>
+    <%=image_tag @main_pokemon.pokemon.pokemon_image, size: "200" %>
   <% end %>
 </div>
-<div>
-  <%= link_to 'たたかう', user_pokemon_matches_standby_path %>
+<div style='text-align: center; margin-top: 40px;'>
+  <%= link_to 'たたかう', user_pokemon_matches_standby_path, class: 'btn btn-primary', style: 'font-size: 20px;' %>
 </div>

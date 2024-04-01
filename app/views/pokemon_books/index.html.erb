@@ -1,1 +1,7 @@
+<h1 style='padding: 10px; text-align: center;'>ポケモン図鑑</h1>
+<div style='padding-bottom: 10px; text-align: center;'>
+  <div>見つけた数：<%= @watch_pokemons %></div>
+  <div>捕まえた数：<%= @catch_pokemons %></div>
+</div>
+
 <%= render partial: 'pokemon_books', locals: { pokemon_books: @pokemon_books } %>

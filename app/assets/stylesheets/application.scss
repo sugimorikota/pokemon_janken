@@ -1,3 +1,4 @@
+@import 'font-awesome';
 @import "bootstrap";
 .pokejan{
   font-family: "Nico Moji";
@@ -81,4 +82,8 @@ footer {
 
 .push{
   height: 85px;/*フッターと同じ高さに指定*/
+}
+
+.navbar-nav {
+  margin-left: auto;
 }

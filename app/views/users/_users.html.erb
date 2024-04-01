@@ -16,7 +16,7 @@
         <%= image_tag user.avatar.url, class: 'rounded-circle mt-3', size: '100x100' %>
       </td>
       <td style="width: 50%;">
-        <%= link_to user.name, user_path(user) %>
+        <%= link_to user.name, profile_path(id:user.id) %>
       </td>
       
     </tr>

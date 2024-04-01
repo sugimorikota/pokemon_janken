@@ -33,6 +33,7 @@ pokemon_list.each do |pokemon|
   
   no = pokemon_data['id']
   name = pokemon_data['name']
+  hiragana_name = pokemon_data['name']
   pokemon_image = pokemon_data['sprites']['front_default']
   pokemon_back_image = pokemon_data['sprites']['back_default']
   
@@ -57,6 +58,7 @@ pokemon_list.each do |pokemon|
     result = json.select { |x| x["id"].to_s.include?(no.to_s) }
     if result.present?
       name = result[0]["name"]
+      hiragana_name = result[0]["hiragana_name"]
     end
   end
   
@@ -65,6 +67,7 @@ pokemon_list.each do |pokemon|
     pokemon = Pokemon.create(
                 no: no,
                 name: name,
+                hiragana_name: hiragana_name,
                 pokemon_image: pokemon_image,
                 pokemon_back_image: pokemon_back_image
               )
@@ -99,3 +102,12 @@ IndividualPokemonType.create(
   pokemon_type_id: 9
 )
 =end
+
+user = User.create!(email: "sample@example.com",
+  password:  "123",
+  password_confirmation: "123",
+  name:  "ぎー",
+  role: 1
+)
+
+UserPokemonMatch.create(user_id: user.id)
