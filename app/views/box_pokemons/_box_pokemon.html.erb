@@ -1,26 +1,17 @@
 <!-- ポケモン一覧 -->
-<table>
-  <!-- ヘッダー行 -->
-  <tr>
-    <th>図鑑No.</th>
-    <th>名前</th>
-    <th>画像</th>
-    <th>タイプ</th>
-    <th>操作</th>
-  </tr>
-  
+<table align="center" class="pokemons-table">
   <!-- ポケモンの情報を表示 -->
   <% box_pokemons.each do |box_pokemon| %>
-    <tr>
-      <td><%= box_pokemon.no %></td>
-      <td><%= link_to box_pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{box_pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" %></td>
-      <td><%= image_tag(box_pokemon.pokemon_image) %></td>
-      <td>
+    <tr style='text-align: center; border: 2px dotted gray;'>
+      <td  style="width: 100px;"><%= box_pokemon.no %></td>
+      <td style="width: 30px;"><%= image_tag(box_pokemon.pokemon_image) %></td>
+      <td style="width: 100px;"><%= link_to box_pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{box_pokemon.no}', 'ポケモン詳細', 'width=600, height=550')" , class: 'link'%></td>
+      <td style="width: 150px;">
         <% box_pokemon.pokemon_types.each do |box_pokemon_type| %>
           <%= image_tag(box_pokemon_type.type_image, height: '25', weight: '75') %>
         <% end %>
       </td>
-      <td><%= link_to 'キミに決めた!', box_pokemons_change_path(pokemon_id: box_pokemon.id), data: { turbo_method: :post } %></td>
+      <td style=" padding-right: 50px;"><%= link_to 'キミに決めた!', box_pokemons_change_path(pokemon_id: box_pokemon.id), data: { turbo_method: :post }, class: 'btn btn-primary' %></td>
     </tr>
   <% end %>
 </table>

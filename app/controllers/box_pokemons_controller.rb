@@ -39,7 +39,7 @@ class BoxPokemonsController < ApplicationController
   end
 
   def search
-    @search_box_pokemons = Pokemon.joins(:box_pokemons).where(box_pokemons: { user_id: current_user.id }).ransack(params[:q]).result.where("name like ?", "%#{params[:q]}%")
+    @search_box_pokemons = Pokemon.joins(:box_pokemons).where(box_pokemons: { user_id: current_user.id }).ransack(params[:q]).result.where("name LIKE :query OR hiragana_name LIKE :query", query: "%#{params[:q]}%")
     #@search_box_pokemons = Pokemon.where("name like ?", "%#{params[:q]}%")
     respond_to do |format|
       format.js

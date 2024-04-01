@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'password_resets/update'
 
-  root 'top#index'
+  root 'top#top'
 
   get 'login', to: 'user_sessions#new' #login_pathが使えるようになり、login_pathが使われるとログイン画面（'user_sessions#new'）に移動する
   post 'login', to: 'user_sessions#create' #login_path('user_sessions#new')からのデータを'user_sessions#create'へ受け取って、データベースに保存
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   post 'box_pokemons/select', to: 'box_pokemons#select'
   post 'box_pokemons/change', to: 'box_pokemons#change'
 
-  resources :users, only: %i[index new create show edit update]
+  resources :users, only: %i[index new create edit update]
+  resource :profile, only: %i[show edit update]
   resources :pokemons, only: [:index]
   resources :pokemons do
     get :search, on: :collection
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
     get 'login', to: 'user_sessions#new'
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
+    post 'reset_match_limit', to: 'dashboards#reset_match_limit'
+    resources :distribute, only: %i[index new create edit update destroy]
   end
 
 

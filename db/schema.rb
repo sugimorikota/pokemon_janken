@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_17_175535) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_175535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_box_pokemons_on_pokemon_id"
+    t.index ["user_id", "pokemon_id"], name: "index_box_pokemons_on_user_id_and_pokemon_id", unique: true
     t.index ["user_id"], name: "index_box_pokemons_on_user_id"
   end
 
@@ -46,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_175535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_pokemon_books_on_pokemon_id"
+    t.index ["user_id", "pokemon_id"], name: "index_pokemon_books_on_user_id_and_pokemon_id", unique: true
     t.index ["user_id"], name: "index_pokemon_books_on_user_id"
   end
 
@@ -63,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_175535) do
     t.datetime "updated_at", null: false
     t.string "pokemon_image", null: false
     t.string "pokemon_back_image", null: false
+    t.string "hiragana_name"
     t.index ["name"], name: "index_pokemons_on_name"
     t.index ["no"], name: "index_pokemons_on_no"
   end

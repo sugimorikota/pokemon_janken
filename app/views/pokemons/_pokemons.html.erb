@@ -1,0 +1,18 @@
+<!-- ポケモン一覧 -->
+
+<table align="center" class="pokemons-table">
+  <!-- ポケモンの情報を表示 -->
+  <% pokemons.each do |pokemon| %>
+    <tr style='text-align: center; border: 2px dotted gray;'>
+      <td style="width: 100px;"><%= pokemon.no %></td>
+      <td style="width: 30px;"><%= image_tag(pokemon.pokemon_image) %></td>
+      <td style="width: 100px;"><%= link_to pokemon.name, "#", onclick: "window.open('https://zukan.pokemon.co.jp/detail/#{pokemon.no}', 'ポケモン詳細', 'width=600, height=550')", class: 'link'%></td>
+      <td style="width: 150px;">
+        <% pokemon.pokemon_types.each do |pokemon_type| %>
+          <%= image_tag(pokemon_type.type_image, height: '25', weight: '75') %>
+        <% end %>
+      </td>
+      <td style=" padding-right: 50px;"><%= link_to 'キミに決めた!', box_pokemons_select_path(pokemon_id: pokemon.id), data: { turbo_method: :post }, class: 'btn btn-primary' %></td>
+    </tr>
+  <% end %>
+</table>

@@ -7,5 +7,6 @@ class CreatePokemonBooks < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_index :pokemon_books, [:user_id, :pokemon_id], unique: true
   end
 end

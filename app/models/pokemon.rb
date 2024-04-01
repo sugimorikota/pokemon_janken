@@ -12,6 +12,10 @@ class Pokemon < ApplicationRecord
   validates :pokemon_back_image, uniqueness: true, presence: true
 
   def self.ransackable_attributes(auth_object = nil)
-    ["no", "name", "created_at", "updated_at", "pokemon_image", "pokemon_back_image"]
+    ["no", "name", "hiragana_name", "created_at", "updated_at", "pokemon_image", "pokemon_back_image"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["box_pokemons", "individual_pokemon_types", "pokemon_types", "users"]
   end
 end

@@ -6,6 +6,8 @@ class PokemonBooksController < ApplicationController
   def index
     @pokemon_books = Pokemon.all
     @current_user = current_user
+    @catch_pokemons = PokemonBook.where(user_id: current_user.id, get_flg: true).count
+    @watch_pokemons = PokemonBook.where(user_id: current_user.id).count
   end
 
   # GET /pokemon_books/1
