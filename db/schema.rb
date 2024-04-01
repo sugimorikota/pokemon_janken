@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -18,7 +18,44 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_box_pokemons_on_pokemon_id"
+    t.index ["user_id", "pokemon_id"], name: "index_box_pokemons_on_user_id_and_pokemon_id", unique: true
     t.index ["user_id"], name: "index_box_pokemons_on_user_id"
+  end
+
+  create_table "individual_pokemon_types", force: :cascade do |t|
+    t.integer "pokemon_id", null: false
+    t.integer "pokemon_type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_individual_pokemon_types_on_pokemon_id"
+    t.index ["pokemon_type_id"], name: "index_individual_pokemon_types_on_pokemon_type_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "body", null: false
+    t.boolean "checked", default: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "pokemon_books", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "pokemon_id", null: false
+    t.boolean "get_flg", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_pokemon_books_on_pokemon_id"
+    t.index ["user_id", "pokemon_id"], name: "index_pokemon_books_on_user_id_and_pokemon_id", unique: true
+    t.index ["user_id"], name: "index_pokemon_books_on_user_id"
+  end
+
+  create_table "pokemon_types", force: :cascade do |t|
+    t.string "type_image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type_image"], name: "index_pokemon_types_on_type_image", unique: true
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -26,8 +63,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_pokemons_on_name", unique: true
-    t.index ["no"], name: "index_pokemons_on_no", unique: true
+    t.string "pokemon_image", null: false
+    t.string "pokemon_back_image", null: false
+    t.string "hiragana_name"
+    t.index ["name"], name: "index_pokemons_on_name"
+    t.index ["no"], name: "index_pokemons_on_no"
+  end
+
+  create_table "user_pokemon_matches", force: :cascade do |t|
+    t.integer "match_score", default: 500, null: false
+    t.integer "match_limit", default: 10, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_user_pokemon_matches_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,9 +86,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_01_182247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.string "avatar"
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
+    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
   add_foreign_key "box_pokemons", "pokemons"
   add_foreign_key "box_pokemons", "users"
+  add_foreign_key "individual_pokemon_types", "pokemon_types"
+  add_foreign_key "individual_pokemon_types", "pokemons"
+  add_foreign_key "notifications", "users"
+  add_foreign_key "pokemon_books", "pokemons"
+  add_foreign_key "pokemon_books", "users"
+  add_foreign_key "user_pokemon_matches", "users"
 end

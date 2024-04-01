@@ -1,0 +1,15 @@
+<div id="autocomplete-box_pokemons" style="padding: 10px 5%; text-align: center;">
+  <%= search_form_for @q, url: box_pokemons_path do |f| %>
+    <div class="relative flex rounded-md"  style="margin-bottom: 10px;">
+      <div data-controller="autocomplete" data-autocomplete-url-value="/box_pokemons/search" role="combobox">
+  	    <%= f.search_field :name_or_hiragana_name_start, data: { autocomplete_target: 'input' }, class: "w-[300px] py-3 px-4 pl-11 block border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400", placeholder: "名前を入力してください" %>
+        <%= f.submit "検索", class: "ml-4 py-3 px-4 inline-flex flex-shrink-0 justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" %>
+  	    <%= f.hidden_field :name, data: { autocomplete_target: 'output' } %>
+
+  	    <ul class="list-group bg-white absolute w-full md:text-sm max-w-max" style="width: 312px; margin: 0 auto; " data-autocomplete-target="results"></ul>
+      </div>
+  	  
+    </div>
+  <% end %>
+  <%= render partial: 'box_pokemon', locals: { box_pokemons: @box_pokemons } %>
+</div>

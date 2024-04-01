@@ -6,7 +6,7 @@ class CreatePokemons < ActiveRecord::Migration[7.1]
 
       t.timestamps                null: false
     end
-    add_index :pokemons, :no, unique: true
-    add_index :pokemons, :name, unique: true
+    add_index :pokemons, :no
+    add_index :pokemons, :name
   end
 end

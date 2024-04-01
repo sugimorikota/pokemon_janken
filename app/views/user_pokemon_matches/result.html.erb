@@ -1,0 +1,25 @@
+<div style="text-align: center; justify-content: center;">
+  <div>
+    <% case @result_message %>
+    <% when "WIN" %>
+      <span style="color: red;"><%= @result_message %></span>
+    <% when "DROW" %>
+      <span style="color: grey;"><%= @result_message %></span>
+    <% when "LOSE" %>
+      <span style="color: blue;"><%= @result_message %></span>
+    <% end %>
+  </div>
+  <div>
+    <% if @pokemonget.present? %>
+      <div>
+        <%= image_tag @pokemonget.pokemon.pokemon_image %>
+      </div>
+      <div>
+        <%= @pokemonget.pokemon.name %>をつかまえた！
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <%= @current_user_pokemon_match.match_score %>
+  </div>
+</div>

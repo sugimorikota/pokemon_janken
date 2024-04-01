@@ -1,0 +1,14 @@
+<!-- ポケモン一覧 -->
+<table align="center" class="pokemons-table">
+  
+  
+  <!-- ポケモンの情報を表示 -->
+  <% pokemon_books.each do |pokemon_book| %>
+    <tr style="background-color: <%= pokemon_book.decorate.row_background_color %>; text-align: center; border: 2px dotted #CCCCCC;">
+      <td style="width: 100px;"><%= pokemon_book.no %></td>
+      <td style="width: 30px;"><%= pokemon_book.decorate.render_image_tag %></td>
+      <td style="width: 150px;"><%= pokemon_book.decorate.render_name_link %></td>
+      <td style="width: 200px;"><%= pokemon_book.decorate.render_type_images %></td>
+    </tr>
+  <% end %>
+</table>

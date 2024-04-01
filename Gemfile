@@ -50,6 +50,30 @@ gem 'rails-i18n'
 # ログイン機能
 gem 'sorcery'
 
+gem 'bootstrap', '~> 5.0.2'
+gem 'jquery-rails'
+
+gem "sassc-rails"
+
+gem 'carrierwave'
+
+gem 'ransack'
+
+gem 'draper'
+
+gem 'config'
+
+gem 'whenever', require: false
+
+gem 'kaminari'
+
+gem 'searchkick'
+gem 'elasticsearch'
+gem 'faker'
+
+gem "font-awesome-sass"
+gem 'font-awesome-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]

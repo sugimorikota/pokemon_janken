@@ -7,5 +7,6 @@ class CreateBoxPokemons < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
+    add_index :box_pokemons, [:user_id, :pokemon_id], unique: true
   end
 end

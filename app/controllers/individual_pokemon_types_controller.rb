@@ -1,0 +1,2 @@
+class IndividualPokemonTypesController < ApplicationController
+end
