@@ -7,6 +7,7 @@ class UserSessionsController < ApplicationController
     if @user #訳：loginメソッドで検証が一致して、@userにデータだ代入されたら
       redirect_back_or_to root_path #ログインしたらroot_path(root toなどで指定したページ)にリダイレクトする。
     else
+      flash.now[:danger] = "ログインに失敗しました"
       render :new #ログイン出来なかったら、ログインページ（'user_sessions#new'）にリダイレクトされる
     end
   end

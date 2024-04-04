@@ -1,0 +1,13 @@
+<%= link_to '新規作成', new_admin_proof_path %>
+<table align="center">
+  <% @proofs.each do |proof| %>
+    <tr style='border: 2px dotted gray;'>
+      <td style="width: 20%;"><%= link_to proof.name, admin_proof_path(id:proof.id) %></td>
+      <td style="width: 20%;">
+        <%= image_tag(proof.proof_image.url, height: '25', weight: '75') %>
+      </td>
+      <td style="width: 30%;"><%= proof.body %></td>
+      
+    </tr>
+  <% end %>
+</table>

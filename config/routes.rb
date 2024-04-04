@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :notifications, only: [:index]
   delete 'destroy_all_users_notifications', to: 'notifications#destroy_all'
+  resources :proofs, only: %i[show]
 
   namespace :admin do
     get 'user_sessions/new'
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     post 'reset_match_limit', to: 'dashboards#reset_match_limit'
     resources :distribute, only: %i[index new create edit update destroy]
+    resources :proofs, only: %i[index new create edit update destroy show]
+    resources :user_proofs, only: %i[index new create edit update]
   end
 
 

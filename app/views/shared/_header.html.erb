@@ -25,6 +25,10 @@
             <%= link_to 'ランキング', users_path, class: 'dropdown-item' %>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <%= link_to profile_path(id:current_user.id), title: 'プロフィール', data: { toggle: 'tooltip', placement: 'top' }, class: 'nav-link' do %><i class="fa fa-address-card" aria-hidden="true"></i><%end%>
+          
+        </li>
         <li>
           <%= link_to logout_path, class: 'nav-link', data: { turbo_method: :delete } do %><i class="fa fa-sign-out"  aria-hidden="true"></i><%end%>
         </li>

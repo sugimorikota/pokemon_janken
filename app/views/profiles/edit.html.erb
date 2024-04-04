@@ -1,7 +1,5 @@
-<%= link_to '戻る', profile_path(id:@user.id), class: 'btn btn-secondary mb-3' %>
-
 <%= form_for @user, url: profile_path(id:@user.id), local: true, html: { id: 'user-form' } do |f| %>
-  <div class="row" style='border: solid 2px black; padding: 50px; margin: 2% 20%; background-color: white;'>
+  <div class="row" style='border: solid 2px black; padding: 50px; margin: 2% 20% 1% 20%; background-color: white;'>
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :name %>
@@ -17,7 +15,11 @@
       </div>
     </div>
   </div>
-  <div class="form-group text-center">
-    <%= f.submit "更新", class: 'btn btn-primary mt-3' %>
+  <div class="text-center">
+    <%= f.submit "更新", class: 'btn btn-primary' %>
   </div>
+  <div class="form-group text-center">
+    <%= link_to 'キャンセル', :back, class: 'btn btn-secondary mt-2' %>
+  </div>
+  
 <% end %>
