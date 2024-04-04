@@ -103,7 +103,7 @@ IndividualPokemonType.create(
 )
 =end
 
-user = User.create!(email: "sample@example.com",
+user = User.create!(email: "kota.1412@icloud.com",
   password:  "kota3577",
   password_confirmation: "kota3577",
   name:  "ぎー",
