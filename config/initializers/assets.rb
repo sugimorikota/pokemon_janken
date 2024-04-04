@@ -14,3 +14,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w(bootstrap.min.js popper.js)
 Rails.application.config.assets.precompile += %w( adminLTE.js adminlte.scss )
+Rails.application.config.assets.precompile += %w( admin-lte/dist/js/adminlte.min )
