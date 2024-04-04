@@ -1,0 +1,7 @@
+<div class="content-wrapper">
+  <%= form_with url: admin_user_proofs_path, method: :post, local: true do |form| %>
+    <%= form.select :user_id, options_from_collection_for_select(@users, 'id', 'name') %>
+    <%= form.select :proof_id, options_from_collection_for_select(@proofs, 'id', 'name') %>
+    <%= form.submit '配る', class: 'btn btn-primary' %>
+  <% end %>
+</div>

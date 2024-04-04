@@ -22,11 +22,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserPokemonMatch.create(user_id: @user.id)
+      
       redirect_to login_path
-      flash[:notice] = 'ユーザーの作成に成功しました'
+      flash[:success] = 'ユーザーの作成に成功しました'
     else
-      flash.now[:alert] = 'ユーザーの作成に失敗しました'
-      render :new
+      flash[:danger] = 'ユーザーの作成に失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 

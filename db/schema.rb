@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_01_193658) do
   create_table "box_pokemons", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pokemon_id", null: false
@@ -70,6 +70,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
     t.index ["no"], name: "index_pokemons_on_no"
   end
 
+  create_table "proofs", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body", null: false
+    t.string "proof_image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_proofs_on_name", unique: true
+  end
+
   create_table "user_pokemon_matches", force: :cascade do |t|
     t.integer "match_score", default: 500, null: false
     t.integer "match_limit", default: 10, null: false
@@ -77,6 +86,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_user_pokemon_matches_on_user_id"
+  end
+
+  create_table "user_proofs", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "proof_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proof_id"], name: "index_user_proofs_on_proof_id"
+    t.index ["user_id", "proof_id"], name: "index_user_proofs_on_user_id_and_proof_id", unique: true
+    t.index ["user_id"], name: "index_user_proofs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +123,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_19_221041) do
   add_foreign_key "pokemon_books", "pokemons"
   add_foreign_key "pokemon_books", "users"
   add_foreign_key "user_pokemon_matches", "users"
+  add_foreign_key "user_proofs", "proofs"
+  add_foreign_key "user_proofs", "users"
 end

@@ -9,6 +9,7 @@ class BoxPokemonsController < ApplicationController
     end
     pokemon_id = params[:pokemon_id]
     @select_pokemon = BoxPokemon.new(user_id: current_user.id, pokemon_id: pokemon_id, main_flg: true)
+    @select_pokemon_name = @select_pokemon.pokemon.name
     if @select_pokemon.save
       PokemonBook.create(
         user_id: current_user.id,
@@ -16,7 +17,7 @@ class BoxPokemonsController < ApplicationController
         get_flg: true
       )
       redirect_to root_path
-      flash[:notice] = 'ユーザーの作成に成功しました'
+      flash[:success] = "#{@select_pokemon_name}をゲットした!"
     else
       flash.now[:alert] = 'ユーザーの作成に失敗しました'
       render :pokemons_path
@@ -35,7 +36,7 @@ class BoxPokemonsController < ApplicationController
     pokemon_id = params[:pokemon_id]
     @new_main_pokemon = @box_pokemons.find_by(pokemon_id: pokemon_id)
     @new_main_pokemon.update(main_flg: true)
-    redirect_to root_path
+    redirect_to user_pokemon_matches_standby_path
   end
 
   def search

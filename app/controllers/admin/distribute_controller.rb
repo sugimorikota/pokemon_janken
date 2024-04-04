@@ -11,6 +11,10 @@ class Admin::DistributeController < Admin::BaseController
 
   def create
     @box_pokemon = BoxPokemon.new(box_pokemon_params)
+    @pokemon_book = PokemonBook.create(box_pokemon_params)
+    @pokemon_book.update(get_flg: true)
+    @pokemon_name = @box_pokemon.pokemon.name
+    Notification.create(user_id: box_pokemon_params[:user_id], body: "#{@pokemon_name}が送られてきた！")
 
     if @box_pokemon.save
       redirect_to admin_root_path, success: "ポケモンを配布しました"

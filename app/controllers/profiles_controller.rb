@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-
+    @user_proofs = UserProof.where(user_id: @user.id)
   end
 
   private
