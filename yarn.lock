@@ -97,9 +97,9 @@
   resolved "https://registry.npmjs.org/@ttskch/select2-bootstrap4-theme/-/select2-bootstrap4-theme-1.5.2.tgz"
   integrity sha512-gAj8qNy/VYwQDBkACm0USM66kxFai8flX83ayRXPNhzZckEgSqIBB9sM74SCM3ssgeX+ZVy4BifTnLis+KpIyg==
 
-admin-lte@^3.2:
+admin-lte@^3.2.0:
   version "3.2.0"
-  resolved "https://registry.npmjs.org/admin-lte/-/admin-lte-3.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/admin-lte/-/admin-lte-3.2.0.tgz#9be383a6418c2323828466ab95af0eb083e4a597"
   integrity sha512-IDUfoU8jo9DVlB59lDEASAJXTesAEXDZ68DOHI3qg93r5ehVTkMl2x0ixgIyff8NiHeNYXpcOZh3tr6oGbvu9g==
   dependencies:
     "@fortawesome/fontawesome-free" "^5.15.4"
