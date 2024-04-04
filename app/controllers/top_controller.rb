@@ -5,4 +5,8 @@ class TopController < ApplicationController
       @main_pokemon = BoxPokemon.find_by(user_id: current_user.id, main_flg: true)
     end
   end
+
+  def play
+    
+  end
 end

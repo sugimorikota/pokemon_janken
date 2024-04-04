@@ -1,4 +1,4 @@
-<div class="battle justify-content: center;" style="background-color: #EEFFFF; margin: 0% 33%; padding-top: 20px;">
+<div class="battle justify-content: center;" style="background-color: #EEFFFF; margin: 2% 33% 0% 33%; padding-top: 20px;">
   <div style="display: flex; justify-content: center;">
     <div style="padding-top: 140px;">
       <div style="position: relative; width: 100%; text-align: center; z-index: 1">
@@ -44,8 +44,8 @@
         <%= @match_pokemon.user.name%>の　<br><%= @match_pokemon.pokemon.name %>が　あらわれた！🔻
       </div>
       <div id="battle-right-menu" style="padding-right: 50px; color: black; background-color: white;">
-        <%= link_to 'たたかう', user_pokemon_matches_result_path %>
-        <%= link_to 'にげる', root_path %>
+        <%= link_to 'たたかう', user_pokemon_matches_result_path, class: 'link' %>
+        <%= link_to 'にげる', root_path, class: 'link' %>
       </div>
     </div>
   </div>
