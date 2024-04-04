@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ edit update ]
 
   def index
-    @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC')
+    @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC').page(params[:page]).per(20)
   end
 
   # GET /users/new

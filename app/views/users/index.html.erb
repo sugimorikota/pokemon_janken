@@ -1,2 +1,5 @@
 <h1 align="center" style='padding: 10px;'><%= t '.title' %></h1>
 <%= render partial: 'users', locals: { users: @users } %>
+<div style="text-align: center;">
+  <%= paginate @users %>
+</div>

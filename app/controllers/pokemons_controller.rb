@@ -1,6 +1,6 @@
 class PokemonsController < ApplicationController
   skip_before_action :check_current_user_box_pokemons, only: %i[index search]
-  #before_action :box_pokemon_present, only: %i[index]
+  before_action :box_pokemon_present, only: %i[index]
 
   def index
     @q = Pokemon.where(id: 1..149).ransack(params[:q])
