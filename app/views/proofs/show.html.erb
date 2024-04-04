@@ -1,0 +1,9 @@
+<div align='center'>
+  <div style="margin-top: 5%; border: solid 2px black; padding: 50px; margin: 2% 30%; background-color: white;" >
+    <div><%= image_tag(@proof.proof_image.url, height: '50', weight: '75') %></div>
+    <div style="font-size: 20px; margin-top: 5px; margin-bottom: 10px;"><%= @proof.name %></div>
+    <div style="margin-bottom: 20px;"><%= @proof.body %></div>
+    
+  </div>
+  <div><%= link_to "戻る", :back, class: 'btn btn-success', style: 'margin-bottom: 5px'%></div>
+</div>

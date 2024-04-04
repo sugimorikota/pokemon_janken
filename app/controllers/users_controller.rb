@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ edit update ]
 
   def index
-    @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC')
+    @users = User.joins(:user_pokemon_match).order('user_pokemon_matches.match_score DESC').page(params[:page]).per(20)
   end
 
   # GET /users/new
@@ -22,11 +22,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserPokemonMatch.create(user_id: @user.id)
+      
       redirect_to login_path
-      flash[:notice] = 'ユーザーの作成に成功しました'
+      flash[:success] = 'ユーザーの作成に成功しました'
     else
-      flash.now[:alert] = 'ユーザーの作成に失敗しました'
-      render :new
+      flash[:danger] = 'ユーザーの作成に失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 

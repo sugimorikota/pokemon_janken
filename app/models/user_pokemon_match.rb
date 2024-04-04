@@ -725,4 +725,14 @@ class UserPokemonMatch < ApplicationRecord
     end
   end
 
+  def self.update_match_score
+    UserPokemonMatch.update_all(match_score: 500)
+
+    users = User.all
+    notification_body = "レートがリセットされました。"
+    users.each do |user|
+      user.notifications.create(body: notification_body)
+    end
+  end
+
 end

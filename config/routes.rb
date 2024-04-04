@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'password_resets/update'
 
   root 'top#top'
+  get 'play', to: 'top#play'
 
   get 'login', to: 'user_sessions#new' #login_pathが使えるようになり、login_pathが使われるとログイン画面（'user_sessions#new'）に移動する
   post 'login', to: 'user_sessions#create' #login_path('user_sessions#new')からのデータを'user_sessions#create'へ受け取って、データベースに保存
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :notifications, only: [:index]
   delete 'destroy_all_users_notifications', to: 'notifications#destroy_all'
+  resources :proofs, only: %i[show]
 
   namespace :admin do
     get 'user_sessions/new'
@@ -39,7 +41,11 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     post 'reset_match_limit', to: 'dashboards#reset_match_limit'
+    post 'reset_match_score', to: 'dashboards#reset_match_score'
+    post 'reset_boxpokemon', to: 'dashboards#reset_boxpokemon'
     resources :distribute, only: %i[index new create edit update destroy]
+    resources :proofs, only: %i[index new create edit update destroy show]
+    resources :user_proofs, only: %i[index new create edit update]
   end
 
 

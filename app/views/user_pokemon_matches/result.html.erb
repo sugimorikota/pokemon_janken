@@ -1,5 +1,5 @@
-<div style="text-align: center; justify-content: center;">
-  <div>
+<div style="text-align: center; justify-content: center; margin-top: 5%;">
+  <div style="font-size: 40px;">
     <% case @result_message %>
     <% when "WIN" %>
       <span style="color: red;"><%= @result_message %></span>
@@ -20,6 +20,12 @@
     <% end %>
   </div>
   <div>
-    <%= @current_user_pokemon_match.match_score %>
+    レート：<%= @current_user_pokemon_match.match_score %>
+  </div>
+  <div>
+    <%= link_to 'もう一度対戦する',  user_pokemon_matches_standby_path, class: 'btn btn-primary', style: 'margin: 10px' %>
+  </div>
+  <div>
+    <%= link_to 'トップページに戻る', root_path,  class: 'btn btn-success', style: 'margin-bottom: 5px'%>
   </div>
 </div>
