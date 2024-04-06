@@ -92,10 +92,10 @@
 * テスト機能(RSpec)
 * ポケモンゲット時 X投稿機能
 * レスポンシブデザイン適用
+* 非同期の通知画面が通知が多くなると削除ボタンが見切れてしまうので、スライドできるように改修
 
 ## 機能の実装方針予定
-ポケモンの情報　POKEAPI
-検索機能　Stimulus Autocomplete　JQuery
-通知機能　WebSocket通信・ActionCable（Rails標準）
+* ポケモンの情報　POKEAPI
+* 検索機能　Stimulus Autocomplete　JQuery
 
 他利用できそうな技術を検討中です。
