@@ -54,6 +54,10 @@ Rails.application.routes.draw do
   get 'user_pokemon_matches/result', to: 'user_pokemon_matches#result'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  get 'rights/term', to: 'rights#term'
+  get 'rights/privacy', to: 'rights#privacy'
+  get 'rights/inquiry', to: 'rights#inquiry'
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

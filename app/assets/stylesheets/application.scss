@@ -91,3 +91,13 @@ footer {
 .tooltip {
   transition-delay: 1s; /* 表示までの時間を設定します */
 }
+
+.footer-list{
+  list-style: none;
+  margin-left: 20px;
+}
+
+.footer-ul{
+  display: flex;
+  justify-content: center;
+}
