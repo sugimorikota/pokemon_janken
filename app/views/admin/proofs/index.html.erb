@@ -7,7 +7,7 @@
         <%= image_tag(proof.proof_image.url, height: '25', weight: '75') %>
       </td>
       <td style="width: 30%;"><%= proof.body %></td>
-      
+      <td><%= link_to '編集', edit_admin_proof_path(proof), class: 'btn btn-success'%></td>
     </tr>
   <% end %>
 </table>

@@ -1,5 +1,5 @@
 class Admin::ProofsController < Admin::BaseController
-  before_action :set_proof,only: %i[show]
+  before_action :set_proof,only: %i[show edit update]
 
   def index
     @proofs = Proof.all
@@ -23,6 +23,17 @@ class Admin::ProofsController < Admin::BaseController
     
   end
 
+  def edit
+    
+  end
+
+  def update
+    if @proof.update(proof_params)
+      redirect_to admin_proof_path
+    else
+      render :edit
+    end
+  end
 
   private
 
